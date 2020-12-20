@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <script src="popup.js"></script>
+  <script src="background.js"></script>
+  <script src="abbreviationManager.js"></script>
+
+  <head>
+    <title>Custom URL abbreviations</title>
+  </head>
+
+  <body>
+    <div>
+      <h3>Submit new abbrevation:</h3>
+      <form enctype="application/json" id ="newAbbreviationForm" name="newAbbreviationForm">
+        <label>Abbreviated url:</label><br>
+        <input type="text" id="abbrUrlField"><br>
+        <label>Redirect url:</label><br>
+        <input type="text" id="redirectUrlField"><br>
+        <input type="submit" id="newAbbreviationSubmitButton">
+      </form>
+    </div>
+    <div id="debug1">
+    </div>
+    <div id="debug2">
+    </div>
+    <div id="debug3">
+    </div>
+    <div id="debug4">
+    </div>
+  </body>
+</html>
