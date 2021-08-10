@@ -1,0 +1,43 @@
+body {
+    align-items: center;
+    background-color: #9B9B9B;
+    display: flex;
+    height: 300px;
+    justify-content: center;
+    width: 400px;
+  }
+  
+  .button-row > * {
+    margin: 20px 20px;
+  }
+  
+  .button {
+    background-color: white;
+    background-position: center center; 
+    border-color: black;
+    border-radius: 4%;
+    border-style: solid;
+    border-width: 1.6%;
+    height: 75px;
+    width: 75px;
+  }
+  
+  .button:hover {
+    filter: brightness(95%);
+  }
+  
+  .button:active {
+    filter: brightness(90%);
+  }
+  
+  .bookmark-icon {
+    background-image: url('images/bookmark_icon_75x75.png');
+  }
+  
+  .folder-icon {
+    background-image: url('images/folder_icon_75x75.png');
+  }
+  
+  .settings-icon {
+    background-image: url('images/settings_icon_75x75.png');
+  }
