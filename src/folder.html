@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <script src="popup.js"></script>
-  <script src="background.js"></script>
-  <!-- <script src="abbreviationManager.js"></script> -->
-
   <head>
-    <title>Custom URL abbreviations</title>
     <link rel="stylesheet" href="folder.css">
+    <link rel="stylesheet" href="navigation.css">
   </head>
 
   <body>
-    <div class="button-row">
-        <button class="button folder-icon" id="folder-button"></button>
-      <script src="navigation.js"></script>
+    <div class="navbar"
+         style="background-color: #FEA511;
+                box-shadow: 0 4px 2px 2px #FEA511;">
+      <button class="back-arrow" id="back-button" style="background-color: #FEA511;"></button>
     </div>
+    <div class="content">
+      <div class="button-row">
+        <button class="button folder-icon" id="folder-button"></button>
+      </div>
+    </div>
+    <script src="navigation.js"></script>
   </body>
 </html>

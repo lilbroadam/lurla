@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <script src="popup.js"></script>
-  <script src="background.js"></script>
-  <!-- <script src="abbreviationManager.js"></script> -->
-
   <head>
-    <title>Custom URL abbreviations</title>
     <link rel="stylesheet" href="bookmark.css">
+    <link rel="stylesheet" href="navigation.css">
   </head>
 
   <body>
-    <div class="button-row">
-      <button class="button bookmark-icon"></button>
+    <div class="navbar"
+         style="background-color: #00A400;
+                box-shadow: 0 4px 2px 2px #00A400;">
+      <button class="back-arrow" id="back-button" style="background-color: #00A400;"></button>
     </div>
+    <div class="content">
+      <div class="button-row">
+        <button class="button bookmark-icon"></button>
+      </div>
+    </div>
+    <script src="navigation.js"></script>
   </body>
 </html>

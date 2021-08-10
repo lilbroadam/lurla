@@ -1,0 +1,20 @@
+.navbar {
+  height: 16.6666%;
+  width: 100%;
+  display: flex;
+}
+
+.back-arrow {
+  background-image: url('images/back_arrow_50x50.png');
+  border-style: none;
+  height: 50px;
+  width: 50px;
+}
+
+.back-arrow:hover {
+  filter: brightness(95%);
+}
+
+.back-arrow:active {
+  filter: brightness(90%);
+}
