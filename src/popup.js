@@ -12,3 +12,6 @@
 //     addAbbreviationUrl(abbrUrl, redirectUrl);
 //   }
 // }, false)
+
+// TODO DELETE: For developmental purposes only
+// window.location.href = 'bookmark.html';

@@ -9,13 +9,27 @@
     <div class="navbar"
          style="background-color: #00A400;
                 box-shadow: 0 4px 2px 2px #00A400;">
-      <button class="back-arrow" id="back-button" style="background-color: #00A400;"></button>
+      <button class="back-arrow"
+              id="back-button"
+              style="background-color: #00A400;"></button>
+      <!-- TODO center title text -->
+      <div class="title-text">Add a new abbreviation</div>
     </div>
     <div class="content">
-      <div class="button-row">
-        <button class="button bookmark-icon"></button>
+      <div class="text">Redirect</div>
+      <input class="textbox" id="intercepturl-textbox"></input>
+      <div class="text">to</div>
+      <div style="display: flex; justify-content: center;">
+        <div class="text" style="text-align: left;">ab.</div>
+        <input class="textbox" id="redirecturl-textbox"></input>
+        <div class="text" style="text-align: right;">.com</div>
       </div>
+      <div></div>
+      <!-- TODO make button width match text width -->
+      <button id="submit-abbreviation">Abbreviate!</button>
+      <div></div>
     </div>
+    <script src="bookmark.js"></script>
     <script src="navigation.js"></script>
   </body>
 </html>
