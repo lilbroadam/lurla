@@ -6,10 +6,17 @@
 
   <head>
     <title>Custom URL abbreviations</title>
+    <link rel="stylesheet" href="popup.css">
   </head>
 
-  <body>
-    <div>
+  <body class="popup">
+    <div class="button-row">
+      <button class="button bookmark-icon"></button>
+      <button class="button folder-icon"></button>
+      <button class="button settings-icon"></button>
+    </div>
+
+    <!-- <div>
       <h3>Submit new abbrevation:</h3>
       <form enctype="application/json" id ="newAbbreviationForm" name="newAbbreviationForm">
         <label>Abbreviated url:</label><br>
@@ -18,14 +25,6 @@
         <input type="text" id="redirectUrlField"><br>
         <input type="submit" id="newAbbreviationSubmitButton">
       </form>
-    </div>
-    <div id="debug1">
-    </div>
-    <div id="debug2">
-    </div>
-    <div id="debug3">
-    </div>
-    <div id="debug4">
-    </div>
+    </div> -->
   </body>
 </html>
