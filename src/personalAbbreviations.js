@@ -1,1 +1,1 @@
-dict[buildAbbreviatedUrl('aleks')] = 'https://www.aleks.com/utexas/chemistry';
+// dict[buildAbbreviatedUrl('aleks')] = 'https://www.aleks.com/utexas/chemistry';

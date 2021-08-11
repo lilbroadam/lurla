@@ -3,6 +3,9 @@
   <head>
     <link rel="stylesheet" href="bookmark.css">
     <link rel="stylesheet" href="navigation.css">
+    <script src="abbreviationUtils.js"></script>
+    <script src="storageManager.js"></script>
+    <script src="interceptor.js"></script>
   </head>
 
   <body>
@@ -16,12 +19,12 @@
       <div class="title-text">Add a new abbreviation</div>
     </div>
     <div class="content">
-      <div class="text">Redirect</div>
-      <input class="textbox" id="intercepturl-textbox"></input>
+      <div class="text">Abbreviate</div>
+      <input class="textbox" id="redirecturl-textbox"></input>
       <div class="text">to</div>
       <div style="display: flex; justify-content: center;">
         <div class="text" style="text-align: left;">ab.</div>
-        <input class="textbox" id="redirecturl-textbox"></input>
+        <input class="textbox" id="abbreviatedurl-textbox"></input>
         <div class="text" style="text-align: right;">.com</div>
       </div>
       <div></div>
