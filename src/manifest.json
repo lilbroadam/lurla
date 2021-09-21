@@ -1,11 +1,15 @@
 {
-	"name": "Local short url",
+	"name": "Lurla",
   "version": "1.0",
   "manifest_version": 2, // TODO update to manivest v3
   "background": {
-    "scripts": ["abbreviationUtils.js", "storageManager.js", "interceptor.js"],
+    "scripts": ["abbreviationUtils.js",
+                "storageManager.js",
+                "interceptor.js",
+                "omnibox.js"],
     "persistent": true
   },
+  "omnibox": { "keyword" : "lurla" },
   "browser_action": {
     "default_popup": "popup.html"
   },
