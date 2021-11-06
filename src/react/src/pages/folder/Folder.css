@@ -1,0 +1,22 @@
+.folder {
+  height: 300px;
+  margin: 0px;
+  width: 400px;
+}
+
+.folder-content {
+  align-items: center;
+  display: flex;
+  height: 83.3333%;
+  justify-content: center;
+  width: 400px;
+}
+
+table {
+  /* text-align: center; */
+  /* border-collapse: collapse; */
+}
+
+th {
+  border-bottom: 1px solid black;
+}

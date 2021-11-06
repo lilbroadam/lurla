@@ -1,0 +1,50 @@
+.bookmarks {
+  height: 300px;
+  margin: 0px;
+  width: 400px;
+}
+
+.bookmarks-content {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 66%;
+  height: 83.3333%;
+  justify-content: center;
+  row-gap: 0px;
+  width: 100%;
+}
+
+.button:hover {
+  filter: brightness(95%);
+}
+
+.button:active {
+  filter: brightness(90%);
+}
+
+.title-text {
+  align-items: center;
+  color: white;
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  text-align: center;
+}
+
+.text {
+  color: white;
+  font-size: 16px;
+  text-align: center;
+}
+
+.textbox {
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid black;
+  outline: 0;
+  width: 100%;
+}
+
+.submit-button {
+  width: auto;
+}
