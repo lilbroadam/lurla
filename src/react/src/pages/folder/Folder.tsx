@@ -36,25 +36,87 @@ function LurlaGrid(props: any) {
 
   // Radium requires each element using interactive styles have a unique key
   var keyNum: number = 0;
+  var formNum: number = 0;
+
+  const onFormSubmit = async (event: any) => {
+    event.preventDefault();
+
+    var oAbbrUrl: string = event.target.originalAbbreviatedUrl.value;
+    var abbrUrl: string = event.target.abbreviatedUrl.value;
+    var redirUrl: string = event.target.redirectUrl.value;
+    
+    if (event.nativeEvent.submitter.name == 'put-submit') {
+      if (oAbbrUrl != abbrUrl) {
+        await storage.removeAbbreviatedUrl(oAbbrUrl);
+      }
+      storage.putAbbreviatedUrl(abbrUrl, redirUrl);
+    } else if (event.nativeEvent.submitter.name == 'del-submit') {
+      storage.removeAbbreviatedUrl(oAbbrUrl);
+    }
+
+    alert('submitted: ' + oAbbrUrl + ' | ' + abbrUrl + ' -> ' + redirUrl);
+  }
 
   return (
     <div>
       <table style={{width: '100%'}}>
-        <tr>
-          <th>Abbreviated URL</th>
-          <th></th>
-          <th>Redirect URL</th>
-        </tr>
+        <thead>
+          <tr>
+            <th>Abbreviated URL</th>
+            <th></th>
+            <th>Redirect URL</th>
+          </tr>
+        </thead>
+        <tbody>
         {
           props.abbreviations.map( (abbr: Abbreviation) => (
             <tr>
-              {/* <input className="textbox" id="redirecturl-textbox" onKeyPress={onKeyPress}/> */}
-              <input style={textBoxStyle} key={`${keyNum++}`} value={abbr.abbreviatedUrl}/>
-              <td>{'->'}</td>
-              <input style={textBoxStyle} key={`${keyNum++}`} type="url" value={abbr.redirectUrl}/>
+              {/* TODO use validation */}
+              <form noValidate
+                id={`form-${++formNum}`}
+                onSubmit={onFormSubmit}
+              />
+              <input
+                form={`form-${formNum}`}
+                name="originalAbbreviatedUrl"
+                type="hidden"
+                value={abbr.abbreviatedUrl}
+              />
+              <input
+                defaultValue={abbr.abbreviatedUrl}
+                form={`form-${formNum}`}
+                key={`${keyNum++}`}
+                name="abbreviatedUrl"
+                style={textBoxStyle}
+              />
+              <td>{'→'}</td>
+              <input
+                defaultValue={abbr.redirectUrl}
+                form={`form-${formNum}`}
+                key={`${keyNum++}`}
+                name="redirectUrl"
+                style={textBoxStyle}
+                type="url"
+              />
+              <input
+                form={`form-${formNum}`}
+                name="put-submit"
+                style={{display: 'none'}}
+                type="submit"
+                value ="Submit"
+              />
+              <button
+                form={`form-${formNum}`}
+                name="del-submit"
+                type="submit"
+                value="Submit"
+              >
+                d
+              </button>
             </tr>
           ))
         }
+        </tbody>
       </table>
     </div>
   );

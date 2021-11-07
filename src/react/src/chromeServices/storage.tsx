@@ -23,7 +23,7 @@ export function read(key: string) {
 export async function write(key: string, value: any) {
   try {
     chrome.storage.local.set({[key]: value});
-  } catch (e) { // TODO catch norma exceptions
+  } catch (e) { // TODO catch normal exceptions
     storageMock[key] = value;
   }
 }
@@ -43,9 +43,18 @@ export async function getRedirectMap() {
   return map;
 }
 
+// Put abbreviatedUrl -> redirectUrl in the redirects map
 export async function putAbbreviatedUrl(abbrUrl: string, redirectUrl: string) {
   var map: any = await getRedirectMap();
   map[abbrUrl] = redirectUrl;
+  await updateRedirectMap(map);
+  // refreshInterceptListener(); // TODO
+}
+
+// Remove abbreviatedUrl from redirects
+export async function removeAbbreviatedUrl(abbrUrl: string) {
+  var map: any = await getRedirectMap();
+  delete map[abbrUrl];
   await updateRedirectMap(map);
   // refreshInterceptListener(); // TODO
 }

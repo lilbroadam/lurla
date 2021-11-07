@@ -38,6 +38,8 @@ async function onSubmit(e: any) {
 
   // TODO notify the user if operation is successful
   alert(abbreviatedUrl + ' -> ' + redirectUrl);
+
+  abbreviatedUrlElem.value = '';
 }
 
 export default function Bookmark() {
@@ -53,7 +55,7 @@ export default function Bookmark() {
 
   return (
     <div className="bookmarks">
-      <Navbar color={navBarColor}/>
+      <Navbar color={navBarColor} title={"Add a new abbreviation"}/>
       <div className="bookmarks-content" style={contentStyle}>
         <div className="text">Abbreviate</div>
         <input className="textbox" id="redirecturl-textbox" onKeyPress={onKeyPress}/>
