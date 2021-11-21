@@ -2,7 +2,11 @@
   "name": "Lurla popup - React",
   "description": "Base Level Extension",
   "version": "1.0",
-  "manifest_version": 2,
+  "manifest_version": 2, // TODO update to manifest v3
+  "background": {
+    "scripts": ["./background/background.js"],
+    "persistent": true // TODO might not need to be true
+  },
   "browser_action": {
     "default_popup": "index.html",
     "default_title": "Open the popup"
