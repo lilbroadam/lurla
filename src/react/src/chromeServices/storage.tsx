@@ -23,6 +23,12 @@ export function read(key: string) {
 export async function write(key: string, value: any) {
   try {
     chrome.storage.local.set({[key]: value});
+    // TODO refresh intercept listener. Possible solutions:
+    /* 1) via Chrome API (https://stackoverflow.com/questions/13546778/how-to-communicate-between-popup-js-and-background-js-in-chrome-extension)
+     * 2) add addListener() function to this file
+     *   - not sure if this will work since background script runs separately
+     *     from the rest of the extension
+     */
   } catch (e) { // TODO catch normal exceptions
     storageMock[key] = value;
   }
