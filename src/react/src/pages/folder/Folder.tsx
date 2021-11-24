@@ -148,7 +148,7 @@ export default function Folder() {
 
   return (
     <div className="folder">
-      <Navbar color={navBarColor}/>
+      <Navbar color={navBarColor} title={"Manage abbreviations"}/>
       <div className="folder-content" style={contentStyle}>
         <div id="display">{
           <StyledLurlaGrid abbreviations={abbreviations} />

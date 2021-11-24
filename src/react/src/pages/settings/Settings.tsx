@@ -9,9 +9,11 @@ export default function Settings() {
 
   return (
     <div className="settings">
-      <Navbar color={navBarColor} />
-      <div className="settings-contentcontent" style={contentStyle}>
-        settings
+      <Navbar color={navBarColor} title={"Settings"}/>
+      <div className="settings-content content" style={contentStyle}>
+        <h2>
+          Coming soon!
+        </h2>
       </div>
     </div>
   );
