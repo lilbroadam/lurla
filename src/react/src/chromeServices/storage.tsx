@@ -1,3 +1,4 @@
+import * as messages from "./messages";
 
 const REDIRECT_MAP_KEY = 'redirectMap';
 
@@ -23,12 +24,6 @@ export function read(key: string) {
 export async function write(key: string, value: any) {
   try {
     chrome.storage.local.set({[key]: value});
-    // TODO refresh intercept listener. Possible solutions:
-    /* 1) via Chrome API (https://stackoverflow.com/questions/13546778/how-to-communicate-between-popup-js-and-background-js-in-chrome-extension)
-     * 2) add addListener() function to this file
-     *   - not sure if this will work since background script runs separately
-     *     from the rest of the extension
-     */
   } catch (e) { // TODO catch normal exceptions
     storageMock[key] = value;
   }
@@ -36,7 +31,8 @@ export async function write(key: string, value: any) {
 
 export async function updateRedirectMap(map: Map<any, any>) {
   // TODO add cache
-  write(REDIRECT_MAP_KEY, map);
+  await write(REDIRECT_MAP_KEY, map);
+  messages.send({interceptor: "refresh"});
 }
 
 // TODO sort before returning
@@ -54,7 +50,6 @@ export async function putAbbreviatedUrl(abbrUrl: string, redirectUrl: string) {
   var map: any = await getRedirectMap();
   map[abbrUrl] = redirectUrl;
   await updateRedirectMap(map);
-  // refreshInterceptListener(); // TODO
 }
 
 // Remove abbreviatedUrl from redirects
@@ -62,10 +57,9 @@ export async function removeAbbreviatedUrl(abbrUrl: string) {
   var map: any = await getRedirectMap();
   delete map[abbrUrl];
   await updateRedirectMap(map);
-  // refreshInterceptListener(); // TODO
 }
 
-/* DEBUGGING FUNCTIONS */
+/* DEBUGGING FUNCTIONS */ // TODO move
 
 function printMap(map: any) {
   for (var key in map) {

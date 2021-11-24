@@ -32,7 +32,8 @@
     "build:bg:watch": "CHOKIDAR_USEPOLLING=true webpack --watch --progress --config ./background.webpack.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "watch": "cra-build-watch --after-initial-build-hook 'npm run build:bg' --after-rebuild-hook 'npm run build:bg'"
+    "watch": "cra-build-watch --after-initial-build-hook 'npm run build:bg' --after-rebuild-hook 'npm run build:bg'",
+    "watch:p": "npm-run-all --parallel watch build:bg:watch"
   },
   "eslintConfig": {
     "extends": [
