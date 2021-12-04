@@ -107,14 +107,16 @@ function LurlaGrid(props: any) {
     </tr>
   ))
 
+  const stickyHeader: any = {position: 'sticky', top: '0', backgroundColor: backgroundColor};
+
   return (
-    <div style={{maxHeight: '200px', overflow: 'scroll', overflowX: 'hidden'}}>
-      <table style={{width: '100%'}}>
+    <div>
+      <table style={{display: 'block', height: '200px', overflowY: 'auto'}}>
         <thead>
           <tr>
-            <th>Abbreviated URL</th>
-            <th></th>
-            <th>Redirect URL</th>
+            <th style={stickyHeader}>Abbreviated URL</th>
+            <th style={stickyHeader}></th>
+            <th style={stickyHeader}>Redirect URL</th>
           </tr>
         </thead>
         <tbody>
