@@ -57,8 +57,58 @@ function LurlaGrid(props: any) {
     alert('submitted: ' + oAbbrUrl + ' | ' + abbrUrl + ' -> ' + redirUrl);
   }
 
+  const deleteButton =
+    <button
+      form={`form-${formNum}`}
+      name="del-submit"
+      type="submit"
+      value="Submit"
+    >
+      d
+    </button>
+
+  const tableRows = props.abbreviations.map((abbr: Abbreviation) => (
+    <tr>
+      {/* TODO use validation */}
+      <form noValidate
+        id={`form-${++formNum}`}
+        onSubmit={onFormSubmit}
+      />
+      <input
+        form={`form-${formNum}`}
+        name="originalAbbreviatedUrl"
+        type="hidden"
+        value={abbr.abbreviatedUrl}
+      />
+      <input
+        defaultValue={abbr.abbreviatedUrl}
+        form={`form-${formNum}`}
+        key={`${keyNum++}`}
+        name="abbreviatedUrl"
+        style={textBoxStyle}
+      />
+      <td>{'→'}</td>
+      <input
+        defaultValue={abbr.redirectUrl}
+        form={`form-${formNum}`}
+        key={`${keyNum++}`}
+        name="redirectUrl"
+        style={textBoxStyle}
+        type="url"
+      />
+      <input
+        form={`form-${formNum}`}
+        name="put-submit"
+        style={{display: 'none'}}
+        type="submit"
+        value ="Submit"
+      />
+      { deleteButton }
+    </tr>
+  ))
+
   return (
-    <div>
+    <div style={{maxHeight: '200px', overflow: 'scroll', overflowX: 'hidden'}}>
       <table style={{width: '100%'}}>
         <thead>
           <tr>
@@ -68,54 +118,7 @@ function LurlaGrid(props: any) {
           </tr>
         </thead>
         <tbody>
-        {
-          props.abbreviations.map( (abbr: Abbreviation) => (
-            <tr>
-              {/* TODO use validation */}
-              <form noValidate
-                id={`form-${++formNum}`}
-                onSubmit={onFormSubmit}
-              />
-              <input
-                form={`form-${formNum}`}
-                name="originalAbbreviatedUrl"
-                type="hidden"
-                value={abbr.abbreviatedUrl}
-              />
-              <input
-                defaultValue={abbr.abbreviatedUrl}
-                form={`form-${formNum}`}
-                key={`${keyNum++}`}
-                name="abbreviatedUrl"
-                style={textBoxStyle}
-              />
-              <td>{'→'}</td>
-              <input
-                defaultValue={abbr.redirectUrl}
-                form={`form-${formNum}`}
-                key={`${keyNum++}`}
-                name="redirectUrl"
-                style={textBoxStyle}
-                type="url"
-              />
-              <input
-                form={`form-${formNum}`}
-                name="put-submit"
-                style={{display: 'none'}}
-                type="submit"
-                value ="Submit"
-              />
-              <button
-                form={`form-${formNum}`}
-                name="del-submit"
-                type="submit"
-                value="Submit"
-              >
-                d
-              </button>
-            </tr>
-          ))
-        }
+          { tableRows }
         </tbody>
       </table>
     </div>

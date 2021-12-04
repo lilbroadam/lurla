@@ -5,7 +5,15 @@ const REDIRECT_MAP_KEY = 'redirectMap';
 var storageMock: any = {};
 storageMock[REDIRECT_MAP_KEY] = {
   adam: 'dev.url.com/tabs',
+  austintx: 'https://google.com/maps?q=austin',
+  google: 'https://google.com/',
+  theoffice: 'https://en.wikipedia.org/wiki/The_Office_(American_TV_series)',
+  spotify: 'https://open.spotify.com/',
+  netflix: 'https://netflix.com/',
+  smite: 'smitegame.com',
+  more: 'website.com',
   youtube: 'https://youtube.com/',
+  watchdogs: 'https://en.wikipedia.org/wiki/Watch_Dogs',
 }
 
 export function read(key: string) {
