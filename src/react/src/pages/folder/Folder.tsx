@@ -15,10 +15,15 @@ interface Abbreviation {
 }
 
 function LurlaGrid(props: any) {
-  const textBoxStyle = {
+
+  // TODO display ellipsis for overflowing text
+  const textBoxStyle: Object = {
     backgroundColor: backgroundColor,
     border: 'none',
     boxShadow: `0 0 0 1px ${backgroundColor}`,
+    // textOverflow: 'ellipsis',
+    // whiteSpace: 'nowrap',
+    // overflow: 'hidden',
     ':focus': {
       backgroundColor: navBarColor,
       borderRadius: '2pt',
@@ -30,6 +35,8 @@ function LurlaGrid(props: any) {
       backgroundColor: navBarColor,
       outline: '1px solid black',
       outlineWidth: '1px',
+      // textOverflow: 'none',
+      // textOverflow: 'clip',
       transition: '.2s',
     }
   };
@@ -72,46 +79,54 @@ function LurlaGrid(props: any) {
       {/* TODO use validation */}
       <form noValidate
         id={`form-${++formNum}`}
-        onSubmit={onFormSubmit}
-      />
+        onSubmit={onFormSubmit} />
       <input
         form={`form-${formNum}`}
         name="originalAbbreviatedUrl"
         type="hidden"
-        value={abbr.abbreviatedUrl}
-      />
-      <input
-        defaultValue={abbr.abbreviatedUrl}
-        form={`form-${formNum}`}
-        key={`${keyNum++}`}
-        name="abbreviatedUrl"
-        style={textBoxStyle}
-      />
-      <td>{'→'}</td>
-      <input
-        defaultValue={abbr.redirectUrl}
-        form={`form-${formNum}`}
-        key={`${keyNum++}`}
-        name="redirectUrl"
-        style={textBoxStyle}
-        type="url"
-      />
-      <input
-        form={`form-${formNum}`}
-        name="put-submit"
-        style={{display: 'none'}}
-        type="submit"
-        value ="Submit"
-      />
-      { deleteButton }
+        value={abbr.abbreviatedUrl} />
+      <td>
+        <input
+          defaultValue={abbr.abbreviatedUrl}
+          form={`form-${formNum}`}
+          key={`${keyNum++}`}
+          name="abbreviatedUrl"
+          style={textBoxStyle} />
+      </td>
+      <td>
+        {'→'}
+      </td>
+      <td style={{display: 'flex'}}>
+        <input
+          defaultValue={abbr.redirectUrl}
+          form={`form-${formNum}`}
+          key={`${keyNum++}`}
+          name="redirectUrl"
+          style={textBoxStyle}
+          type="url" />
+        <input
+          form={`form-${formNum}`}
+          name="put-submit"
+          style={{display: 'none'}}
+          type="submit"
+          value ="Submit" />
+        { deleteButton }
+      </td>
     </tr>
   ))
 
+  // TODO the spacing gap between table head cells allows the border lines of
+  // table data cells to be viewed between them. Possible solutions:
+  // - https://stackoverflow.com/questions/8479090/remove-spacing-between-table-cells-and-rows
+  // - https://stackoverflow.com/questions/351058/space-between-two-rows-in-a-table
   const stickyHeader: any = {position: 'sticky', top: '0', backgroundColor: backgroundColor};
 
   return (
-    <div>
-      <table style={{display: 'block', height: '200px', overflowY: 'auto'}}>
+    <div style={{display: 'table'}}>
+      {/* TODO make (max) width and height percentages to take up rest of page */}
+      {/* TODO fix scrollbar displaying on top of table */}
+      {/* https://www.youtube.com/watch?v=rMlsGBPSEzo */}
+      <table style={{display: 'block', height: '200px', overflowY: 'auto', overflowX: 'hidden'}}>
         <thead>
           <tr>
             <th style={stickyHeader}>Abbreviated URL</th>
