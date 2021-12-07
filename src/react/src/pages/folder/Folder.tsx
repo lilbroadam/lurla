@@ -1,7 +1,7 @@
 // TODO change to absolute path imports
 import './Folder.css';
 import Navbar from "../../components/navbar/Navbar";
-import * as storage from "../../chromeServices/storage";
+import * as storage from "../../services/storage";
 import { useEffect, useState } from 'react';
 import Radium from 'radium';
 

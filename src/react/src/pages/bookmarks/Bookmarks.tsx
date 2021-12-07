@@ -2,8 +2,8 @@
 import './Bookmarks.css';
 import Navbar from "../../components/navbar/Navbar";
 import { useEffect } from 'react';
-import * as tabs from "../../chromeServices/tabs";
-import * as storage from "../../chromeServices/storage";
+import * as tabs from "../../services/tabs";
+import * as storage from "../../services/storage";
 
 /**
  * Prefill redirect url with current tab's url
