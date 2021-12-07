@@ -1,7 +1,7 @@
 {
-  "name": "Lurla popup - React",
-  "description": "Base Level Extension",
-  "version": "1.0",
+  "name": "Lurla",
+  "description": "Lurla for Chrome", // TODO give a better description
+  "version": "0.1.0",
   "manifest_version": 2, // TODO update to manifest v3
   "background": {
     "scripts": ["./background/background.js"],
