@@ -5,7 +5,7 @@ import * as abbrU from "./abbreviationUtils"; // TODO cleanup
 var redirectMap: any = {};
 var interceptUrls: string[] = [];
 var beforeRequestCallback = (webRequest) => {
-  let interceptPattern = new RegExp('.*ab\..*\.com.*');
+  let interceptPattern = /.*ab\..*\.com.*/;
   if (!interceptPattern.test(webRequest.url)) {
     return { redirectUrl: undefined };
   }
@@ -14,6 +14,7 @@ var beforeRequestCallback = (webRequest) => {
   var end = webRequest.url.indexOf('.', start);
   var redir = webRequest.url.substring(start, end);
   var redirectUrl = redirectMap[redir];
+  // TODO log intercepts
   return { redirectUrl: redirectUrl }
 }
 
