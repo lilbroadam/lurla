@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/background/background.ts',
+  entry: './src/chromeServices/background.ts',
   devtool: 'inline-source-map',
   module: {
     rules: [

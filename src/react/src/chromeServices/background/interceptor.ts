@@ -1,5 +1,5 @@
 import * as messages from "../messages";
-import * as storage from "../../chromeServices/storage";
+import * as storage from "../storage";
 import * as abbrU from "./abbreviationUtils"; // TODO cleanup
 
 var redirectMap: any = {};
