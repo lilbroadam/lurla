@@ -58,21 +58,25 @@ function LurlaGrid(props: any) {
       }
       storage.putAbbreviatedUrl(abbrUrl, redirUrl);
     } else if (event.nativeEvent.submitter.name == 'del-submit') {
+      alert(`Deleted \"${oAbbrUrl}\"`);
       storage.removeAbbreviatedUrl(oAbbrUrl);
     }
 
-    alert('submitted: ' + oAbbrUrl + ' | ' + abbrUrl + ' -> ' + redirUrl);
+    // alert('submitted: ' + oAbbrUrl + ' | ' + abbrUrl + ' -> ' + redirUrl);
   }
 
-  const deleteButton =
-    <button
-      form={`form-${formNum}`}
-      name="del-submit"
-      type="submit"
-      value="Submit"
-    >
-      d
-    </button>
+  const deleteButton = (formName) => {
+    return (
+      <button
+        form={formName}
+        name="del-submit"
+        type="submit"
+        value="Submit"
+      >
+        d
+      </button>
+    );
+  }
 
   const tableRows = props.abbreviations.map((abbr: Abbreviation) => (
     <tr>
@@ -110,7 +114,7 @@ function LurlaGrid(props: any) {
           style={{display: 'none'}}
           type="submit"
           value ="Submit" />
-        { deleteButton }
+        { deleteButton(`form-${formNum}`) }
       </td>
     </tr>
   ))
