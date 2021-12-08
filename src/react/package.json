@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -23,16 +22,24 @@
     "web-vitals": "^1.1.2",
     "webpack-cli": "^4.9.1"
   },
+  "devDependencies": {
+    "@types/chrome": "^0.0.158",
+    "@types/radium": "^0.24.4",
+    "cra-build-watch": "^3.4.0",
+    "cross-env": "^7.0.3",
+    "ts-loader": "^8.2.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "prebuild": "rimraf build",
     "build": "npm-run-all build:*",
-    "build:app": "INLINE_RUNTIME_CHUNK=false react-scripts build",
+    "build:app": "cross-env INLINE_RUNTIME_CHUNK=false react-scripts build",
     "build:bg": "webpack --config ./background.webpack.config.js",
-    "build:bg:watch": "CHOKIDAR_USEPOLLING=true webpack --watch --progress --config ./background.webpack.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "watch": "cra-build-watch --after-initial-build-hook 'npm run build:bg' --after-rebuild-hook 'npm run build:bg'",
+    "watch:app": "cra-build-watch --after-initial-build-hook 'npm run build:bg'",
+    "watch:bg": "cross-env CHOKIDAR_USEPOLLING=true webpack --watch --progress --config ./background.webpack.config.js",
     "watch:p": "npm-run-all --parallel watch build:bg:watch"
   },
   "eslintConfig": {
@@ -55,11 +62,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@types/chrome": "^0.0.158",
-    "@types/radium": "^0.24.4",
-    "cra-build-watch": "^3.4.0",
-    "ts-loader": "^8.2.0"
   }
 }
